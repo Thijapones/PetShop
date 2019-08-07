@@ -1,11 +1,43 @@
-﻿
+﻿@using System.Collections
+@using PetShopLibrary.Entities
+
+
 @{
     ViewData["Title"] = "Index";
+    var pets = (IList<Pet>)ViewBag.Pets;
 }
 
 <h1>Pets</h1>
 
+<table class="blueTable">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>PetName</td>
+            <td>Species</td>
+            <td>Brand</td>
+            <td>Gender</td>
+            <td>Age</td>
+            <td>PetOwner</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pet in pets)
+        {
+            <tr>
+                <td>@pet.Id</td>
+                <td>@pet.PetName</td>
+                <td>@pet.Species</td>
+                <td>@pet.Brand</td>
+                <td>@pet.Gender</td>
+                <td>@pet.Age</td>
+                <td>@pet.PetOwner</td>
+            </tr>
+        }
+    </tbody>
+</table>
 
+@Html.ActionLink("New Pet", "InsertPet", "Pet")
 
 
 

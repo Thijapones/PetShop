@@ -29,6 +29,11 @@ namespace PetShopLibrary.Repository
             return data;
         }
 
+        public T GetbyId(int id)
+        {
+            return _collection.Find((a) => a.Id == id).First();
+        }
+
         public bool Insert(T obj)
         {
             _collection.InsertOne(obj);
